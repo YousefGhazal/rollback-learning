@@ -2,13 +2,23 @@ import random
 
 choices = ("r", "p", "s")
 names = {"r": "Rock", "p": "Paper", "s": "Scissors"}
-while True:
-    user_choice = input("Enter your choice (r/p/s): ").lower()
-    computer_choice = random.choice(choices)
-    if user_choice not in choices:
-        print("Invalid choice. Please try again.")
-        continue
 
+
+def get_user_choice():
+    while True:
+        user_choice = input("Enter your choice (r/p/s): ").lower()
+        if user_choice in choices:
+            return user_choice
+        else:
+            print("Invalid choice.")
+
+
+def display_choice(user_choice, computer_choice):
+    print(f"you choice {names[user_choice]}")
+    print(f"computer choice {names[computer_choice]}")
+
+
+def determine_winner(user_choice, computer_choice):
     if user_choice == computer_choice:
         print("it's tie")
     elif (
@@ -19,8 +29,17 @@ while True:
         print("You win")
     else:
         print("You lose!")
-    print(f"you choice {names[user_choice]}")
-    print(f"computer choice {names[computer_choice]}")
-    play_again = input("want to play again: (y/n)")
-    if play_again != "y":
-        break
+
+
+def play_game():
+    while True:
+        user_choice = get_user_choice()
+        computer_choice = random.choice(choices)
+        display_choice(user_choice, computer_choice)
+        determine_winner(user_choice, computer_choice)
+        play_again = input("want to play again: (y/n)")
+        if play_again != "y":
+            break
+
+
+play_game()
