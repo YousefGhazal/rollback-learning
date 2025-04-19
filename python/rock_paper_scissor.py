@@ -1,7 +1,9 @@
 import random
 
-choices = ("r", "p", "s")
-names = {"r": "Rock", "p": "Paper", "s": "Scissors"}
+ROCK, PAPER, SCISSORS = "r", "p", "s"
+
+names = {ROCK: "Rock", PAPER: "Paper", SCISSORS: "Scissors"}
+choices = tuple(names.keys())
 
 
 def get_user_choice():
@@ -22,9 +24,9 @@ def determine_winner(user_choice, computer_choice):
     if user_choice == computer_choice:
         print("it's tie")
     elif (
-        (user_choice == "r" and computer_choice == "s")
-        or (user_choice == "s" and computer_choice == "p")
-        or (user_choice == "p" and computer_choice == "r")
+        (user_choice == ROCK and computer_choice == SCISSORS)
+        or (user_choice == SCISSORS and computer_choice == PAPER)
+        or (user_choice == PAPER and computer_choice == ROCK)
     ):
         print("You win")
     else:
