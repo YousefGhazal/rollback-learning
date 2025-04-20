@@ -1,6 +1,6 @@
-import random 
+import random
 
-best_score = None 
+best_score = None
 while True:
     count = 6
     try:
@@ -11,7 +11,7 @@ while True:
         print("Invalid input")
         continue
 
-    attempts = 0 
+    attempts = 0
 
     while count != 0:
         count -= 1
@@ -21,9 +21,9 @@ while True:
             print("You lose")
             print(f"The number was {num}")
             break
-        try: 
+        try:
             guess = int(input(f"Guess a number between {minimum} and {maximum}: "))
-            if guess > num: 
+            if guess > num:
                 print("Guess lower")
             elif guess < num:
                 print("Guess higher")
@@ -36,9 +36,9 @@ while True:
                 break
         except ValueError:
             print("Invalid input")
-    
+
     play_again = input("Do you want to play again? (yes/no): ").strip().lower()
-    if play_again != 'yes':
+    if play_again != "yes":
         print("Thanks for playing!")
         print(f"Your best score was: {best_score} attempts.")
         break
