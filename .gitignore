@@ -1,2 +1,4 @@
 venv/
 courses/
+*pyc
+db.sqlite3
