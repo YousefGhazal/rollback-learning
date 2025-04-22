@@ -1,0 +1,56 @@
+[
+    {
+        "model": "app.author",
+        "pk": 1,
+        "fields": {
+            "name": "Author One"
+        }
+    },
+    {
+        "model": "app.author",
+        "pk": 2,
+        "fields": {
+            "name": "Author Two"
+        }
+    },
+    {
+        "model": "app.book",
+        "pk": 1,
+        "fields": {
+            "title": "Book One",
+            "pages": 300,
+            "sold": 150,
+            "author": 1
+        }
+    },
+    {
+        "model": "app.book",
+        "pk": 2,
+        "fields": {
+            "title": "Book Two",
+            "pages": 250,
+            "sold": 100,
+            "author": 1
+        }
+    },
+    {
+        "model": "app.book",
+        "pk": 3,
+        "fields": {
+            "title": "Book Three",
+            "pages": 150,
+            "sold": 50,
+            "author": 2
+        }
+    },
+    {
+        "model": "app.book",
+        "pk": 4,
+        "fields": {
+            "title": "Book Four",
+            "pages": 200,
+            "sold": 120,
+            "author": 2
+        }
+    }
+]
