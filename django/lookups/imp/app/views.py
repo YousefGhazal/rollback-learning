@@ -1,6 +1,6 @@
 from django.http import JsonResponse
 from .models import Book, Author
-from django.db.models import F, Count, Sum
+from django.db.models import F, Count, Sum, OuterRef, Subquery
 
 # Create your views here.
 
@@ -22,9 +22,7 @@ def summary_view(request):
     # 7. Authors with their books in one query
     authors_with_books = Author.objects.prefetch_related("book_set")
     # 8. Authors with total pages in their books
-    author_with_total_pages = Author.objects.annotate(
-        total_pages=Sum("book__pages")
-    )
+    author_with_total_pages = Author.objects.annotate(total_pages=Sum("book__pages"))
 
     data = {
         "number_of_books": books_count,
@@ -65,3 +63,11 @@ def summary_view(request):
     }
 
     return JsonResponse(data)
+
+
+# Subquery example
+latest_book_qs = Book.objects.filter(author=OuterRef("pk")).order_by("-created_at")
+authors_with_latest_book = Author.objects.annotate(
+    latest_book_title=Subquery(latest_book_qs.values("title")[:1])
+)
+print(authors_with_latest_book, "authors_with_latest_book")

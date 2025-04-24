@@ -9,3 +9,4 @@ class Book(models.Model):
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
     pages = models.IntegerField()
     sold = models.IntegerField()
+    created_at = models.DateTimeField(auto_now_add=True)
