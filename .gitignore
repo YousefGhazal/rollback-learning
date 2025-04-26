@@ -2,3 +2,4 @@ venv/
 courses/
 *pyc
 db.sqlite3
+/plan.md
